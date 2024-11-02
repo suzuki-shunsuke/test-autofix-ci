@@ -1,0 +1,15 @@
+---
+name: test
+on:
+  pull_request: {}
+  push:
+    branches:
+      - main
+jobs:
+  foo:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4.1.7
+      - run: npm i -g prettier
+      - run: prettier -w
+      - uses: autofix-ci/action@2891949f3779a1cafafae1523058501de3d4e944 # v1.3.1
